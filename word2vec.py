@@ -11,7 +11,7 @@ df_group = df_group.groupby("id")["value"].apply(list)
 df_group = df_group.to_frame()
 df_group['id'] = df_group.index
 
-
+#fit word2vector model
 w2v_model = Word2Vec(
         df_group['value'],
         size=128,
