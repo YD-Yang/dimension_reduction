@@ -8,6 +8,6 @@ tfidfconverter = TfidfVectorizer(max_features= 500, min_df=100, max_df=0.9, dtyp
 tfidfconverter = tfidfconverter.fit(X_value)
 X_value = tfidfconverter_rx.transform(X_value).toarray().astype('float16')
 X_value = pd.DataFrame(X_value)
-X_value.columns = ['tfidf_' + '_' + str(i) for i in X_value]
+X_value.columns = tfidfconverter.get_feature_names()
 X_value = pd.concat([X_value, X[keycol].reset_index()], axis = 1)
 X_value = X_value.drop('index', axis = 1)
